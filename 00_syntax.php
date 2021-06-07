@@ -8,7 +8,15 @@
   <title>Document</title>
 </head>
 <body>
-Hello World
-<!--Echo HTML tags-->
+<?php
+  echo "Hello";
+  echo "<br>";
+  echo "world";
+  echo "<br>new line";
+?>
+<?php
+echo "<br>";
+  echo "<button>Click...</button>";
+?>
 </body>
 </html>
