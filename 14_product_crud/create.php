@@ -7,12 +7,6 @@ error_reporting(E_ALL);
 $pdo = new PDO('mysql:host=localhost;port=3306;dbname=products_crud', 'root', '');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// echo '<pre>';
-//   var_dump($_FILES);
-// echo '</pre>';
-// exit;
-
-
 $errors = [];
 
 $title = '';
@@ -38,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (empty($errors)) {
     $image = $_FILES['image'] ?? null;
     $imagePath = '';
-    if($image) {
+    if($image && $image['tmp_name']) {
       $imagePath = 'images/'.randomString(8).'/'.$image['name'];
       mkdir(dirname($imagePath));
       move_uploaded_file($image['tmp_name'], $imagePath);
@@ -56,6 +50,7 @@ VALUE(:title, :image, :description, :price, :date)");
     $statement->bindValue(':price', $price);
     $statement->bindValue(':date', $date);
     $statement->execute();
+    header('Location: index.php');
   }
 }
 
