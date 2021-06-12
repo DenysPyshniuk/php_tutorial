@@ -37,8 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       mkdir(dirname($imagePath));
       move_uploaded_file($image['tmp_name'], $imagePath);
     }
-  exit;
-
 
     $statement = $pdo->prepare("INSERT INTO products (title, image, description, price, create_date)
 VALUE(:title, :image, :description, :price, :date)");
