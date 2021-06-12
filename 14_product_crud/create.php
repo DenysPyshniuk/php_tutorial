@@ -37,9 +37,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
   if (empty($errors)) {
     $image = $_FILES['image'] ?? null;
+    $imagePath = '';
     if($image) {
       $imagePath = 'images/'.randomString(8).'/'.$image['name'];
-      move_uploaded_file($image['tmp_name'], 'test.jpg');
+      mkdir(dirname($imagePath));
+      move_uploaded_file($image['tmp_name'], $imagePath);
     }
   exit;
 
@@ -49,7 +51,7 @@ VALUE(:title, :image, :description, :price, :date)");
     //Do not use "exec" instead of prepare to avoid sql injections!!!!
 
     $statement->bindValue(':title', $title);
-    $statement->bindValue(':image', '');
+    $statement->bindValue(':image', $imagePath);
     $statement->bindValue(':description', $description);
     $statement->bindValue(':price', $price);
     $statement->bindValue(':date', $date);
