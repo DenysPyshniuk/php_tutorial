@@ -1,8 +1,12 @@
 <?php
 
-$id = $_GET['id'] ?? null;
+$id = $_POST['id'] ?? null;
 
 if(!$id) {
   header('Location: index.php');
+  exit;
 }
-exit;
+
+echo '<pre>';
+var_dump($id);
+echo '</pre>';
