@@ -1,4 +1,8 @@
 <?php
+//Show errors
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
   $pdo = new PDO('mysql:host=localhost;port=3306;dbname=products_crud', 'root', '');
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -52,7 +56,7 @@
       <td><?php echo $product['price']; ?></td>
       <td><?php echo $product['create_date']; ?></td>
       <td>
-      <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+      <a href="update.php?id=<?php echo $product['id'] ?>" class="btn btn-sm btn-outline-primary">Edit</a>
       <form style="display: inline-block;" method="POST" action="delete.php">
       <input type="hidden" name="id" value="<?php echo $product['id'] ?>">
       <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
