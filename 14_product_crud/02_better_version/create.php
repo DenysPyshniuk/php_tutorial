@@ -19,7 +19,7 @@ $product = [
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-  require_once "validate_product.php"
+  require_once "validate_product.php";
 
   if (empty($errors)) {
 
