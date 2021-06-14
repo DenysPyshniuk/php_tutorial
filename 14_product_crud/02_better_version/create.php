@@ -19,28 +19,9 @@ $product = [
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-  $title = $_POST['title'];
-  $description = $_POST['description'];
-  $price = $_POST['price'];
-  $date = date('Y-m-d H:i:s');
+  require_once "validate_product.php"
 
-  if (!$title) {
-    $errors[] = 'Product title is required';
-  }
-  if (!$price) {
-    $errors[] = 'Product price is required';
-  }
-  if (!is_dir('images')) {
-    mkdir('images');
-  }
   if (empty($errors)) {
-    $image = $_FILES['image'] ?? null;
-    $imagePath = '';
-    if($image && $image['tmp_name']) {
-      $imagePath = 'images/'.randomString(8).'/'.$image['name'];
-      mkdir(dirname($imagePath));
-      move_uploaded_file($image['tmp_name'], $imagePath);
-    }
 
     $statement = $pdo->prepare("INSERT INTO products (title, image, description, price, create_date)
 VALUE(:title, :image, :description, :price, :date)");
@@ -50,7 +31,7 @@ VALUE(:title, :image, :description, :price, :date)");
     $statement->bindValue(':image', $imagePath);
     $statement->bindValue(':description', $description);
     $statement->bindValue(':price', $price);
-    $statement->bindValue(':date', $date);
+    $statement->bindValue(':date', date('Y-m-d H:i:s'));
     $statement->execute();
     header('Location: index.php');
   }
