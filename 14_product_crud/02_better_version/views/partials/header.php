@@ -12,3 +12,5 @@
 
   <title>Products CRUD</title>
 </head>
+
+<body>
