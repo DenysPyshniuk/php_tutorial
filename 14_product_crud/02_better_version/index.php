@@ -21,7 +21,7 @@ error_reporting(E_ALL);
 
 <?php include_once "views/partials/header.php" ?>
 
-  <body>
+
     <h1>Products CRUD</h1>
 
     <p>
@@ -70,5 +70,4 @@ error_reporting(E_ALL);
   </tbody>
 </table>
 
-  </body>
-</html>
+<?php include_once "views/partials/footer.php" ?>

@@ -68,7 +68,6 @@ function randomString($n)
 
 <?php include_once "views/partials/header.php" ?>
 
-<body>
 <p>
   <a href="index.php" class="btn btn-secondary">Home</a>
 </p>
@@ -104,6 +103,4 @@ function randomString($n)
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 
-</body>
-
-</html>
+<?php include_once "views/partials/footer.php" ?>
