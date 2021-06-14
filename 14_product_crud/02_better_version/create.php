@@ -5,12 +5,17 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require_once "database.php";
+require_once "functions.php";
 
 $errors = [];
 
 $title = '';
 $price = '';
 $description = '';
+$product = [
+  'image' => ''
+];
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -50,18 +55,6 @@ VALUE(:title, :image, :description, :price, :date)");
     header('Location: index.php');
   }
 }
-
-function randomString($n)
-{
-  $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $str = '';
-        for ($i = 0; $i < $n; $i++) {
-            $index = rand(0, strlen($characters) -1);
-            $str.= $characters[$index];
-        }
-        return $str;
-}
-
 
 ?>
 

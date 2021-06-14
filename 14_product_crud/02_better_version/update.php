@@ -5,6 +5,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require_once "database.php";
+require_once "functions.php";
 
 $id = $_GET['id'] ?? null;
 
@@ -68,16 +69,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 }
 
-function randomString($n)
-{
-  $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $str = '';
-        for ($i = 0; $i < $n; $i++) {
-            $index = rand(0, strlen($characters) -1);
-            $str.= $characters[$index];
-        }
-        return $str;
-}
 
 
 ?>
@@ -89,39 +80,9 @@ function randomString($n)
   </p>
   <h1>Update product <b><?php echo $product['title'] ?></b></h1>
 
-  <?php if (!empty($errors)) : ?>
-    <div class="alert alert-danger">
-      <?php foreach ($errors as $error) : ?>
-        <div><?php echo $error ?></div>
-      <?php endforeach; ?>
-    </div>
-  <?php endif; ?>
+<?php
 
-  <form action="" method="POST" enctype="multipart/form-data">
+include_once "views/products/form.php";
+include_once "views/partials/footer.php";
 
-    <?php if ($product['image']): ?>
-        <img src="<?php echo $product['image'] ?>" class="update-image">
-    <?php endif; ?>
-
-    <div class="mb-3">
-      <label>Product Image</label>
-      <br>
-      <input type="file" name="image">
-    </div>
-    <div class="mb-3">
-      <label>Product title</label>
-      <input type="text" name="title" class="form-control" value="<?php echo $title ?>">
-    </div>
-    <div class="mb-3">
-      <label>Product Description</label>
-      <textarea class="form-control" name="description" ><?php echo $description ?></textarea>
-    </div>
-    <div class="mb-3">
-      <label>Product Price</label>
-      <input type="number" name="price" step=".01" class="form-control" value="<?php echo $price ?>">
-    </div>
-
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-
-  <?php include_once "views/partials/footer.php" ?>
+?>
