@@ -41,7 +41,7 @@ error_reporting(E_ALL);
 
 <form>
 <div class="input-group mb-3">
-  <input type="text" class="form-control" placeholder="Search for products" name="search">
+  <input type="text" class="form-control" placeholder="Search for products" name="search" value="<?php echo $search ?>">
   <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
 </div></form>
 
