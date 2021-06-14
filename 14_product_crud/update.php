@@ -94,7 +94,9 @@ function randomString($n)
 </head>
 
 <body>
-  <a href="index.php">Home</a>
+  <p>
+    <a href="index.php" class="btn btn-secondary">Home</a>
+  </p>
   <h1>Create new Product</h1>
 
   <?php if (!empty($errors)) : ?>
@@ -106,6 +108,11 @@ function randomString($n)
   <?php endif; ?>
 
   <form action="" method="POST" enctype="multipart/form-data">
+
+    <?php if ($product['image']): ?>
+        <img src="<?php echo $product['image'] ?>">
+    <?php endif; ?>
+
     <div class="mb-3">
       <label>Product Image</label>
       <br>

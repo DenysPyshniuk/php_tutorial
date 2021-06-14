@@ -82,7 +82,9 @@ function randomString($n)
 </head>
 
 <body>
-  <a href="index.php">Home</a>
+<p>
+  <a href="index.php" class="btn btn-secondary">Home</a>
+</p>
   <h1>Create new Product</h1>
 
   <?php if (!empty($errors)) : ?>
