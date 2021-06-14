@@ -83,7 +83,7 @@ function randomString($n)
 
 ?>
 
-<?php include_once('header.php') ?>
+<?php include_once "views/partials/header.php" ?>
 
 <body>
   <p>
