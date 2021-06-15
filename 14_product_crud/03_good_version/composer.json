@@ -1,0 +1,15 @@
+{
+  "name": "root/03_good_version",
+  "authors": [
+    {
+      "name": "DenysPyshniuk",
+      "email": "denys.pyshniuk@gmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "app\\": "./"
+    }
+  }
+}
