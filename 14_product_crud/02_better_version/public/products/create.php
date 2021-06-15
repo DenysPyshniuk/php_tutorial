@@ -4,8 +4,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once "database.php";
-require_once "functions.php";
+require_once "../../database.php";
+require_once "../../functions.php";
 
 $errors = [];
 
@@ -19,7 +19,7 @@ $product = [
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-  require_once "validate_product.php";
+  require_once "../../validate_product.php";
 
   if (empty($errors)) {
 
@@ -39,7 +39,7 @@ VALUE(:title, :image, :description, :price, :date)");
 
 ?>
 
-<?php include_once "views/partials/header.php" ?>
+<?php include_once "../../views/partials/header.php" ?>
 
 <p>
   <a href="index.php" class="btn btn-secondary">Home</a>
@@ -76,4 +76,4 @@ VALUE(:title, :image, :description, :price, :date)");
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 
-<?php include_once "views/partials/footer.php" ?>
+<?php include_once "../../views/partials/footer.php" ?>

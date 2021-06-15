@@ -4,8 +4,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once "database.php";
-require_once "functions.php";
+require_once "../../database.php";
+require_once "../../functions.php";
 
 $id = $_GET['id'] ?? null;
 
@@ -27,7 +27,7 @@ $description = $product['description'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-  require_once "validate_product.php";
+  require_once "../../validate_product.php";
 
   if (empty($errors)) {
 
@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 ?>
 
-<?php include_once "views/partials/header.php" ?>
+<?php include_once "../../views/partials/header.php" ?>
 
   <p>
     <a href="index.php" class="btn btn-secondary">Home</a>
@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <?php
 
-include_once "views/products/form.php";
-include_once "views/partials/footer.php";
+include_once "../../views/products/form.php";
+include_once "../../views/partials/footer.php";
 
 ?>

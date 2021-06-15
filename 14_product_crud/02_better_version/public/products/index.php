@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once "database.php";
+require_once "../../database.php";
 
 
   $search = $_GET['search'] ?? '';
@@ -18,7 +18,7 @@ require_once "database.php";
   $products = $statement->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<?php include_once "views/partials/header.php" ?>
+<?php include_once "../../views/partials/header.php" ?>
 
 
     <h1>Products CRUD</h1>
@@ -50,7 +50,7 @@ require_once "database.php";
       <tr>
       <th scope="row"><?php echo $i + 1; ?></th>
       <td>
-        <img src="<?php echo $product['image'] ?>" class="thumb-image">
+        <img src="/<?php echo $product['image'] ?>" class="thumb-image">
       </td>
       <td><?php echo $product['title']; ?></td>
       <td><?php echo $product['description']; ?></td>
@@ -69,4 +69,4 @@ require_once "database.php";
   </tbody>
 </table>
 
-<?php include_once "views/partials/footer.php" ?>
+<?php include_once "../../views/partials/footer.php" ?>
