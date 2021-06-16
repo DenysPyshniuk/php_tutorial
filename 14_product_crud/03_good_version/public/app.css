@@ -1,13 +1,13 @@
 body {
-  padding: 50px;
+  padding: 1rem 10rem;
 }
 
-.thumb-image {
+.product-img {
   width: 55px;
   height: 80px;
 }
 
-.update-image {
+.product-img-view {
   width: 21vw;
   height: 33vh;
 }
